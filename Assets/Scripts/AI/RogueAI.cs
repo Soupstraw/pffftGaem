@@ -2,15 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AI))]
 public class RogueAI : MonoBehaviour {
+	GameObject player;
+	AI ai;
+	bool meleeNoCD = true;
+	bool rangedNoCD = true;
 
-	// Use this for initialization
-	void Start () {
-		
+	public float attackDistance = 7.5f;
+	public float kiteDistance = 5.0f;
+	public float meleeCooldown = 5.0f;
+	public float rangedCooldown = 3.0f;
+
+	void Start() {
+		ai = gameObject.GetComponent<AI> ();
+		player = GameObject.FindWithTag("Player");
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
-		
+		ai.KeepDistance(kiteDistance);
+		if (rangedNoCD && Vector3.Distance (transform.position, player.transform.position) < attackDistance) {
+			ai.BasicAttack ();
+			rangedNoCD = false;
+			StartCoroutine (RangedCooldown());
+		}
 	}
+
+	IEnumerator MeleeCooldown() {
+		yield return new WaitForSeconds (meleeCooldown);
+		meleeNoCD = true;
+	}
+
+	IEnumerator RangedCooldown() {
+		yield return new WaitForSeconds (rangedCooldown);
+		rangedNoCD = true;
+	}
+
 }

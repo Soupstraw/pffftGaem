@@ -8,8 +8,9 @@ public class ArcherAI : MonoBehaviour {
 	AI ai;
 	bool attackNoCD = true;
 
-	public float attackDistance = 15.0f;
+	public float maxAttackDistance = 15.0f;
 	public float kiteDistance = 10.0f;
+	public float minAttackDistance = 5.0f;
 	public float attackCooldown = 5.0f;
 
 	void Start() {
@@ -18,8 +19,9 @@ public class ArcherAI : MonoBehaviour {
 	}
 
 	void Update () {
+		float distance = Vector3.Distance (transform.position, player.transform.position);
 		ai.KeepDistance(kiteDistance);
-		if (attackNoCD && Vector3.Distance (transform.position, player.transform.position) < attackDistance) {
+		if (attackNoCD && distance < maxAttackDistance && distance > minAttackDistance) {
 			ai.BasicAttack ();
 			attackNoCD = false;
 			StartCoroutine (Cooldown());
