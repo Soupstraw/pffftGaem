@@ -16,14 +16,14 @@ public class Charge : MonoBehaviour {
 		rigid = GetComponent<Rigidbody2D> ();
 	}
 
-	public void DoCharge(){
-		StartCoroutine(ChargeCoroutine(speed, time));
+	public void DoCharge(Vector3 direction){
+		StartCoroutine(ChargeCoroutine(speed, time, direction));
 	}
 
-	IEnumerator ChargeCoroutine(float speed, float time){
+	IEnumerator ChargeCoroutine(float speed, float time, Vector3 dir){
 		float startTime = Time.time;
 		while(Time.time - startTime < time){
-			rigid.velocity = Quaternion.Euler(0, 0, reticule.rotation.eulerAngles.z) * Vector3.down * (time - Time.time + startTime) * speed;
+			rigid.velocity = dir.normalized * (time - Time.time + startTime) * speed;
 			yield return null;
 		}
 	}

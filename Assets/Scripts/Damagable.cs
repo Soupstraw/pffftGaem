@@ -7,6 +7,8 @@ public class Damagable : MonoBehaviour {
 	public float health = 100f;
 	public float healthMax = 100f;
 
+	public GameObject splatter;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -26,6 +28,9 @@ public class Damagable : MonoBehaviour {
 	}
 
 	public void Kill(){
+		if (splatter != null) {
+			Instantiate (splatter, transform.position, Quaternion.Euler(0, 0, Random.value * 360f));
+		}
 		Destroy (gameObject);
 	}
 }

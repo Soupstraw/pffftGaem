@@ -18,6 +18,7 @@ public class Attack : MonoBehaviour {
 
 	public Attacker lightAttack;
 	public Attacker heavyAttack;
+	public Attacker slamAttack;
 
 	public void LightAttack(){
 		lightAttack.DealDamage ();
@@ -27,8 +28,16 @@ public class Attack : MonoBehaviour {
 		heavyAttack.DealDamage ();
 	}
 
+	public void SlamAttack(){
+		slamAttack.DealDamage ();
+	}
+
 	void Start(){
 		anim = GetComponent<Animator> ();
+	}
+
+	public void Charge(){
+		GetComponent<Charge> ().DoCharge (Quaternion.Euler (0, 0, reticule.transform.rotation.eulerAngles.z) * Vector3.down);
 	}
 	
 	// Update is called once per frame
