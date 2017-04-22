@@ -7,7 +7,7 @@ public class AI : MonoBehaviour {
 	Rigidbody2D rb;
 	BoxCollider2D boxColl;
 
-	public float speed = 0.1f;
+	public float speed = 1.0f;
 	public GameObject firstAttack;
 	public GameObject secondAttack;
 
@@ -20,7 +20,7 @@ public class AI : MonoBehaviour {
 	public void Beeline() {
 		Vector3 direction = player.transform.position - transform.position;
 		if (Vector3.Magnitude (direction) > 0.1) {
-			rb.velocity = new Vector2 (direction.x, direction.y).normalized;
+			rb.velocity = new Vector2 (direction.x, direction.y).normalized * speed;
 		} else {
 			rb.velocity = Vector2.zero;
 		}
@@ -31,7 +31,7 @@ public class AI : MonoBehaviour {
 		if (Vector3.Magnitude (reverseDirection) > 0.1) {
 			reverseDirection.z = 0;
 			reverseDirection = reverseDirection.normalized * distance + player.transform.position - transform.position;
-			rb.velocity = new Vector2 (reverseDirection.x, reverseDirection.y).normalized;
+			rb.velocity = new Vector2 (reverseDirection.x, reverseDirection.y).normalized * speed;
 		} else {
 			rb.velocity = Vector2.zero;
 		}
