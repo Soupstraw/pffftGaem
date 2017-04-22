@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\ForestSlowdown.cs" />
      <Compile Include="Assets\Game Jam Template\Scripts\DontDestroy.cs" />
      <Compile Include="Assets\Game Jam Template\Scripts\EventSystemChecker.cs" />
      <Compile Include="Assets\Game Jam Template\Scripts\Pause.cs" />
@@ -62,6 +63,7 @@
      <Compile Include="Assets\Scripts\Attacker.cs" />
      <Compile Include="Assets\Scripts\Charge.cs" />
      <Compile Include="Assets\Scripts\Damagable.cs" />
+     <Compile Include="Assets\Scripts\Forest.cs" />
      <Compile Include="Assets\Scripts\HitpointBar.cs" />
      <Compile Include="Assets\Scripts\Movement.cs" />
      <Compile Include="Assets\Scripts\ProjectileAttacker.cs" />
