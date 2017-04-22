@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\Attack.cs" />
      <Compile Include="Assets\Scripts\Attacker.cs" />
      <Compile Include="Assets\Scripts\Damagable.cs" />
+     <Compile Include="Assets\Scripts\Destroy.cs" />
      <Compile Include="Assets\Scripts\HitpointBar.cs" />
      <Compile Include="Assets\Scripts\Movement.cs" />
      <None Include="Assets\Game Jam Template\Fonts\OpenSans\License!.txt" />

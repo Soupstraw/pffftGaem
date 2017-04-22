@@ -7,6 +7,8 @@ public class Attack : MonoBehaviour {
 
 	private Animator anim;
 
+	public float rotationSpeed = 10f;
+
 	public GameObject reticule;
 
 	public Attacker lightAttack;
@@ -33,7 +35,8 @@ public class Attack : MonoBehaviour {
 			anim.SetTrigger ("HeavyAttack");
 		}
 		if (anim.GetCurrentAnimatorStateInfo (0).IsTag("Movement")) {
-			reticule.transform.rotation = Quaternion.Euler (60, 0, 0) * Quaternion.FromToRotation (Vector3.down, Input.mousePosition - new Vector3 (Screen.width / 2, Screen.height / 2));
+			Quaternion target = Quaternion.Euler (60, 0, 0) * Quaternion.FromToRotation (Vector3.down, Input.mousePosition - new Vector3 (Screen.width / 2, Screen.height / 2));
+			reticule.transform.rotation = Quaternion.RotateTowards(reticule.transform.rotation, target, rotationSpeed);
 		}
 	}
 }
