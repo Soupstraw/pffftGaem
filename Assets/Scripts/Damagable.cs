@@ -19,6 +19,10 @@ public class Damagable : MonoBehaviour {
 		
 	}
 
+	public void DealDamageOverTime(float damage, float time){
+		StartCoroutine (DamageCoroutine(damage, time));
+	}
+
 	public void DealDamage(float damage){
 		health -= damage;
 		Debug.Log ("Health: " + health);
@@ -32,5 +36,13 @@ public class Damagable : MonoBehaviour {
 			Instantiate (splatter, transform.position, Quaternion.Euler(0, 0, Random.value * 360f));
 		}
 		Destroy (gameObject);
+	}
+
+	IEnumerator DamageCoroutine(float damage, float time){
+		float startTime = Time.time;
+		while (Time.time - startTime <= time) {
+			DealDamage (damage / time);
+			yield return new WaitForSeconds (1.0f);
+		}
 	}
 }
