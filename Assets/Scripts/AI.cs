@@ -5,9 +5,11 @@ using UnityEngine;
 public class AI : MonoBehaviour {
 	GameObject player;
 	public float speed = 0.1f;
+	Rigidbody2D rb;
 
 	void Start () {
 		player = GameObject.FindWithTag("Player");
+		rb = gameObject.GetComponent<Rigidbody2D> ();
 	}
 
 	void Update () {
@@ -23,7 +25,7 @@ public class AI : MonoBehaviour {
 		//if (direction.x < 0) {
 		//	rotation += 180;
 		//}
-		transform.Translate(direction * speed);
+		rb.velocity = new Vector2(direction.x, direction.y).normalized;
 	}
 
 
