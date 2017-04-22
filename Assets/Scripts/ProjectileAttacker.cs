@@ -23,5 +23,6 @@ public class ProjectileAttacker : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		attacker.DealDamage ();
+		Destroy (gameObject);
 	}
 }
