@@ -7,7 +7,7 @@ public class AI : MonoBehaviour {
 	Rigidbody2D rb;
 
 	public float speed = 0.1f;
-	public GameObject meleeAttack;
+	public GameObject basicAttack;
 
 	void Start () {
 		player = GameObject.FindWithTag("Player");
@@ -34,7 +34,7 @@ public class AI : MonoBehaviour {
 			rot += 180;
 		}
 		rotation.eulerAngles = new Vector3 (0, 0, rot);
-		Instantiate (meleeAttack, transform.position, rotation);
+		Instantiate (basicAttack, transform.position, rotation);
 	}
 
 }
