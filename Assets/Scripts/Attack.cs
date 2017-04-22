@@ -9,6 +9,17 @@ public class Attack : MonoBehaviour {
 
 	public GameObject reticule;
 
+	public Attacker lightAttack;
+	public Attacker heavyAttack;
+
+	public void LightAttack(){
+		lightAttack.DealDamage ();
+	}
+
+	public void HeavyAttack(){
+		heavyAttack.DealDamage ();
+	}
+
 	void Start(){
 		anim = GetComponent<Animator> ();
 	}

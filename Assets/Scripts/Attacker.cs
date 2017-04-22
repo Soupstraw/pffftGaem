@@ -16,12 +16,15 @@ public class Attacker : MonoBehaviour {
 	
 	public void DealDamage(){
 		ContactFilter2D filter = new ContactFilter2D ();
+		filter.NoFilter ();
 		Collider2D[] res = new Collider2D[100];
-		Physics2D.OverlapCollider (collider, filter, res);
+		Debug.Log(Physics2D.OverlapCollider (collider, filter, res));
 		foreach(Collider2D col in res){
-			Damagable dam = col.GetComponent<Damagable> ();
-			if (dam != null) {
-				dam.DealDamage (damage);
+			if (col != null) {
+				Damagable dam = col.GetComponent<Damagable> ();
+				if (dam != null) {
+					dam.DealDamage (damage);
+				}
 			}
 		}
 	}
