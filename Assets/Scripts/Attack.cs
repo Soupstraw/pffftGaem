@@ -44,7 +44,7 @@ public class Attack : MonoBehaviour {
 				OnHeavyAttack (heavyAttack.GetComponent<Collider2D>());
 		}
 		if (anim.GetCurrentAnimatorStateInfo (0).IsTag("Movement")) {
-			Quaternion target = Quaternion.Euler (60, 0, 0) * Quaternion.FromToRotation (Vector3.down, Input.mousePosition - new Vector3 (Screen.width / 2, Screen.height / 2));
+			Quaternion target = Quaternion.Euler (60, 0, 0) * Quaternion.FromToRotation (Vector3.down, Input.mousePosition - Camera.main.WorldToScreenPoint(reticule.transform.position));
 			reticule.transform.rotation = Quaternion.RotateTowards(reticule.transform.rotation, target, rotationSpeed);
 		}
 	}

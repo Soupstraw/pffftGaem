@@ -6,6 +6,7 @@ using UnityEngine;
 public class Attacker : MonoBehaviour {
 
 	public float damage;
+	public float knockback = 0f;
 	public LayerMask receiver;
 
 	private Collider2D collider;
