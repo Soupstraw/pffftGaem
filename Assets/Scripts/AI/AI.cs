@@ -48,11 +48,11 @@ public class AI : MonoBehaviour {
 		Instantiate (projectile, transform.position, rotation);
 	}
 
-	IEnumerator Evade(Vector3 direction, float speed, float time) {
+	public IEnumerator Evade(Vector3 direction, float speed, float time) {
 		float startTime = Time.time;
 		boxColl.enabled = false;
 		while (Time.time - startTime < time) {
-			rb.velocity = direction * speed;
+			rb.velocity = direction.normalized * speed;
 			yield return null;
 		}
 		boxColl.enabled = true;
