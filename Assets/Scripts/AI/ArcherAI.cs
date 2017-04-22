@@ -18,6 +18,7 @@ public class ArcherAI : MonoBehaviour {
 		player = GameObject.FindWithTag("Player");
 	}
 
+	//Stays at optimal distance, only fires between two distances.
 	void Update () {
 		float distance = Vector3.Distance (transform.position, player.transform.position);
 		ai.KeepDistance(kiteDistance);

@@ -5,6 +5,7 @@ using UnityEngine;
 public class AI : MonoBehaviour {
 	GameObject player;
 	Rigidbody2D rb;
+	BoxCollider2D boxColl;
 
 	public float speed = 0.1f;
 	public GameObject firstAttack;
@@ -13,6 +14,7 @@ public class AI : MonoBehaviour {
 	void Start () {
 		player = GameObject.FindWithTag("Player");
 		rb = gameObject.GetComponent<Rigidbody2D> ();
+		boxColl = gameObject.GetComponent<BoxCollider2D> ();
 	}
 
 	public void Beeline() {
@@ -46,16 +48,14 @@ public class AI : MonoBehaviour {
 		Instantiate (projectile, transform.position, rotation);
 	}
 
-	public void Evade(Vector3 direction, float speed, float time) {
-		StartCoroutine (Dodge(direction, speed, time));
-	}
-
-	IEnumerator Dodge(Vector3 direction, float speed, float time) {
+	IEnumerator Evade(Vector3 direction, float speed, float time) {
 		float startTime = Time.time;
+		boxColl.enabled = false;
 		while (Time.time - startTime < time) {
 			rb.velocity = direction * speed;
 			yield return null;
 		}
+		boxColl.enabled = true;
 	}
 
 }

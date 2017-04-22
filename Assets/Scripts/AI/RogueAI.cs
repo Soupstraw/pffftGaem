@@ -11,6 +11,7 @@ public class RogueAI : MonoBehaviour {
 
 	public float attackDistance = 7.5f;
 	public float kiteDistance = 5.0f;
+	public float aggroDistance = 3.0f;
 	public float meleeCooldown = 5.0f;
 	public float rangedCooldown = 3.0f;
 
@@ -19,9 +20,14 @@ public class RogueAI : MonoBehaviour {
 		player = GameObject.FindWithTag("Player");
 	}
 
+	//Stays at medium range, if the player gets too close, stabs them and jumps away.
 	void Update () {
+		float distance = Vector3.Distance (transform.position, player.transform.position);
+		if (meleeNoCD && distance < aggroDistance) {
+
+		}
 		ai.KeepDistance(kiteDistance);
-		if (rangedNoCD && Vector3.Distance (transform.position, player.transform.position) < attackDistance) {
+		if (rangedNoCD && distance < attackDistance) {
 			ai.BasicAttack (ai.firstAttack);
 			rangedNoCD = false;
 			StartCoroutine (RangedCooldown());
