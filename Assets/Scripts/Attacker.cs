@@ -6,6 +6,7 @@ using UnityEngine;
 public class Attacker : MonoBehaviour {
 
 	public float damage;
+	public LayerMask receiver;
 
 	private Collider2D collider;
 
@@ -16,7 +17,7 @@ public class Attacker : MonoBehaviour {
 	
 	public void DealDamage(){
 		ContactFilter2D filter = new ContactFilter2D ();
-		filter.NoFilter ();
+		filter.SetLayerMask (receiver);
 		Collider2D[] res = new Collider2D[100];
 		Physics2D.OverlapCollider (collider, filter, res);
 		foreach(Collider2D col in res){
