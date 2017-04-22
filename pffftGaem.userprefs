@@ -1,12 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\HitpointBar.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AI\AI.cs">
     <Files>
-      <File FileName="Assets\Scripts\Movement.cs" Line="20" Column="41" />
-      <File FileName="Assets\Scripts\Attack.cs" Line="20" Column="8" />
-      <File FileName="Assets\Scripts\Attacker.cs" Line="21" Column="3" />
-      <File FileName="Assets\Scripts\Damagable.cs" Line="21" Column="33" />
-      <File FileName="Assets\HitpointBar.cs" Line="8" Column="17" />
+      <File FileName="Assets\Scripts\ProjectileAttacker.cs" Line="26" Column="24" />
+      <File FileName="Assets\Scripts\Attacker.cs" Line="5" Column="1" />
+      <File FileName="Assets\Scripts\AI\AI.cs" Line="29" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

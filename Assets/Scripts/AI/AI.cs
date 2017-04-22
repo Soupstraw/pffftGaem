@@ -14,26 +14,19 @@ public class AI : MonoBehaviour {
 		rb = gameObject.GetComponent<Rigidbody2D> ();
 	}
 
-	void Update () {
-		KeepDistance (2);
-		if (Time.time % 5 < 0.1) {
-			MeleeAttack ();
-		}
-	}
-
-	void Approach() { //Beeline
+	public void Beeline() {
 		Vector3 direction = player.transform.position - transform.position;
 		rb.velocity = new Vector2(direction.x, direction.y).normalized;
 	}
 
-	void KeepDistance(float distance) {
+	public void KeepDistance(float distance) {
 		Vector3 reverseDirection = (transform.position - player.transform.position);
 		reverseDirection.z = 0;
 		reverseDirection = reverseDirection.normalized * distance + player.transform.position - transform.position;
 		rb.velocity = new Vector2 (reverseDirection.x, reverseDirection.y).normalized;
 	}
 
-	void MeleeAttack() { //Spawns attack 1 unit away, needs tweaking.
+	public void MeleeAttack() { //Spawns attack 1 unit away, needs tweaking.
 		Vector3 direction = (player.transform.position - transform.position).normalized + transform.position;
 		Quaternion rotation = Quaternion.identity;
 		float rot = (direction.y / direction.x) / Mathf.PI * 180;
