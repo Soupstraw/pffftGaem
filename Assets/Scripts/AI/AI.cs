@@ -6,7 +6,7 @@ public class AI : MonoBehaviour {
 	GameObject player;
 	Rigidbody2D rb;
 
-	public float speed = 0.02f;
+	public float speed = 0.1f;
 	public GameObject meleeAttack;
 
 	void Start () {
@@ -16,7 +16,7 @@ public class AI : MonoBehaviour {
 
 	void Update () {
 		KeepDistance (2);
-		if (Time.time % 5 < 0.1) {
+		if (Time.time % 5 < 0.02) {
 			MeleeAttack ();
 		}
 	}
