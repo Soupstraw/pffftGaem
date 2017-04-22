@@ -16,6 +16,9 @@ public class AI : MonoBehaviour {
 
 	void Update () {
 		KeepDistance (2);
+		if (Time.time % 5 < 0.1) {
+			MeleeAttack ();
+		}
 	}
 
 	void Approach() { //Beeline
@@ -30,15 +33,15 @@ public class AI : MonoBehaviour {
 		rb.velocity = new Vector2 (reverseDirection.x, reverseDirection.y).normalized;
 	}
 
-	/*void MeleeAttack() { //Spawns attack 1 unit away, needs tweaking.
+	void MeleeAttack() { //Spawns attack 1 unit away, needs tweaking.
 		Vector3 direction = (player.transform.position - transform.position).normalized + transform.position;
-		Instantiate (meleeAttack, direction);
-	}*/
+		Quaternion rotation = Quaternion.identity;
+		float rot = (direction.y / direction.x) / Mathf.PI * 180;
+		if (direction.x < 0) {
+			rot += 180;
+		}
+		rotation.eulerAngles = new Vector3 (0, 0, rot);
+		Instantiate (meleeAttack, direction, rotation);
+	}
 
 }
-
-//float rotation;
-//rotation = (direction.y / direction.x) / Mathf.PI * 180;
-//if (direction.x < 0) {
-//	rotation += 180;
-//}
