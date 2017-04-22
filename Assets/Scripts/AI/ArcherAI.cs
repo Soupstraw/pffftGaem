@@ -22,7 +22,7 @@ public class ArcherAI : MonoBehaviour {
 		float distance = Vector3.Distance (transform.position, player.transform.position);
 		ai.KeepDistance(kiteDistance);
 		if (attackNoCD && distance < maxAttackDistance && distance > minAttackDistance) {
-			ai.BasicAttack ();
+			ai.BasicAttack (ai.firstAttack);
 			attackNoCD = false;
 			StartCoroutine (Cooldown());
 		}

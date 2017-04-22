@@ -22,7 +22,7 @@ public class RogueAI : MonoBehaviour {
 	void Update () {
 		ai.KeepDistance(kiteDistance);
 		if (rangedNoCD && Vector3.Distance (transform.position, player.transform.position) < attackDistance) {
-			ai.BasicAttack ();
+			ai.BasicAttack (ai.firstAttack);
 			rangedNoCD = false;
 			StartCoroutine (RangedCooldown());
 		}
