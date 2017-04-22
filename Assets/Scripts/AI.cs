@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class AI : MonoBehaviour {
 	GameObject player;
-	public float speed = 0.1f;
 	Rigidbody2D rb;
+
+	public float speed = 0.1f;
+	public GameObject meleeAttack;
 
 	void Start () {
 		player = GameObject.FindWithTag("Player");
@@ -13,20 +15,30 @@ public class AI : MonoBehaviour {
 	}
 
 	void Update () {
-		Approach ();
+		KeepDistance (2);
 	}
 
-	void Approach() {
+	void Approach() { //Beeline
 		Vector3 direction = player.transform.position - transform.position;
-		direction.z = 0;
-		direction.Normalize ();
-		//float rotation;
-		//rotation = (direction.y / direction.x) / Mathf.PI * 180;
-		//if (direction.x < 0) {
-		//	rotation += 180;
-		//}
 		rb.velocity = new Vector2(direction.x, direction.y).normalized;
 	}
 
+	void KeepDistance(float distance) {
+		Vector3 reverseDirection = (transform.position - player.transform.position);
+		reverseDirection.z = 0;
+		reverseDirection = reverseDirection.normalized * distance + player.transform.position - transform.position;
+		rb.velocity = new Vector2 (reverseDirection.x, reverseDirection.y).normalized;
+	}
+
+	/*void MeleeAttack() { //Spawns attack 1 unit away, needs tweaking.
+		Vector3 direction = (player.transform.position - transform.position).normalized + transform.position;
+		Instantiate (meleeAttack, direction);
+	}*/
 
 }
+
+//float rotation;
+//rotation = (direction.y / direction.x) / Mathf.PI * 180;
+//if (direction.x < 0) {
+//	rotation += 180;
+//}
