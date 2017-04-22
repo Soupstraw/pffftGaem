@@ -6,7 +6,7 @@ public class AI : MonoBehaviour {
 	GameObject player;
 	Rigidbody2D rb;
 
-	public float speed = 0.1f;
+	public float speed = 0.02f;
 	public GameObject meleeAttack;
 
 	void Start () {
