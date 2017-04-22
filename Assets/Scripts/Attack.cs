@@ -5,6 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class Attack : MonoBehaviour {
 
+	public delegate void AttackAction(Collider2D collider);
+	public event AttackAction OnHeavyAttack;
+	public event AttackAction OnLightAttack;
+
+
 	private Animator anim;
 
 	public float rotationSpeed = 10f;
@@ -30,9 +35,13 @@ public class Attack : MonoBehaviour {
 	void Update () {
 		if (Input.GetButtonDown ("LightAttack")) {
 			anim.SetTrigger ("LightAttack");
+			if(OnLightAttack != null)
+				OnLightAttack (lightAttack.GetComponent<Collider2D>());
 		}
 		if (Input.GetButtonDown ("HeavyAttack")) {
 			anim.SetTrigger ("HeavyAttack");
+			if(OnHeavyAttack != null)
+				OnHeavyAttack (heavyAttack.GetComponent<Collider2D>());
 		}
 		if (anim.GetCurrentAnimatorStateInfo (0).IsTag("Movement")) {
 			Quaternion target = Quaternion.Euler (60, 0, 0) * Quaternion.FromToRotation (Vector3.down, Input.mousePosition - new Vector3 (Screen.width / 2, Screen.height / 2));
