@@ -26,15 +26,15 @@ public class AI : MonoBehaviour {
 		rb.velocity = new Vector2 (reverseDirection.x, reverseDirection.y).normalized;
 	}
 
-	public void MeleeAttack() { //Spawns attack 1 unit away, needs tweaking.
-		Vector3 direction = (player.transform.position - transform.position).normalized + transform.position;
+	public void BasicAttack() {
+		Vector3 direction = (player.transform.position - transform.position).normalized;
 		Quaternion rotation = Quaternion.identity;
-		float rot = (direction.y / direction.x) / Mathf.PI * 180;
+		float rot = Mathf.Atan(direction.y / direction.x) / Mathf.PI * 180;
 		if (direction.x < 0) {
 			rot += 180;
 		}
 		rotation.eulerAngles = new Vector3 (0, 0, rot);
-		Instantiate (meleeAttack, direction, rotation);
+		Instantiate (meleeAttack, transform.position, rotation);
 	}
 
 }

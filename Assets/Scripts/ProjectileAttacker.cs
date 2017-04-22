@@ -12,17 +12,17 @@ public class ProjectileAttacker : MonoBehaviour {
 
 	void Start () {
 		Destroy (gameObject, timeout);
-		float rotation = transform.eulerAngles.z / 180 * Mathf.PI;
-		direction = new Vector3(Mathf.Cos(rotation), Mathf.Sin(rotation), 0) * speed;
 		attacker = gameObject.GetComponent<Attacker>();
 	}
 
 	void Update () {
-		transform.Translate (direction);
+		transform.Translate (Vector3.right * speed * Time.deltaTime);
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		attacker.DealDamage ();
-		Destroy (gameObject);
+		if (other.tag == "Player") {
+			attacker.DealDamage ();
+			Destroy (gameObject);
+		}
 	}
 }
