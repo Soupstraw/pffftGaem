@@ -15,14 +15,15 @@ public class AI : MonoBehaviour {
 	}
 
 	void Approach() {
-		Vector3 direction = player.transform.eulerAngles - transform.eulerAngles;
+		Vector3 direction = player.transform.position - transform.position;
 		direction.z = 0;
+		direction.Normalize ();
 		//float rotation;
 		//rotation = (direction.y / direction.x) / Mathf.PI * 180;
 		//if (direction.x < 0) {
 		//	rotation += 180;
 		//}
-		transform.Translate (transform.forward * speed);
+		transform.Translate(direction * speed);
 	}
 
 
