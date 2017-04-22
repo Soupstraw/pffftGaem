@@ -18,7 +18,7 @@ public class Attacker : MonoBehaviour {
 		ContactFilter2D filter = new ContactFilter2D ();
 		filter.NoFilter ();
 		Collider2D[] res = new Collider2D[100];
-		Debug.Log(Physics2D.OverlapCollider (collider, filter, res));
+		Physics2D.OverlapCollider (collider, filter, res);
 		foreach(Collider2D col in res){
 			if (col != null) {
 				Damagable dam = col.GetComponent<Damagable> ();
