@@ -54,7 +54,8 @@
      <Compile Include="Assets\Game Jam Template\Scripts\SetAudioLevels.cs" />
      <Compile Include="Assets\Game Jam Template\Scripts\ShowPanels.cs" />
      <Compile Include="Assets\Game Jam Template\Scripts\StartOptions.cs" />
-     <Compile Include="Assets\Scripts\AI.cs" />
+     <Compile Include="Assets\Scripts\AI\AI.cs" />
+     <Compile Include="Assets\Scripts\AI\BanditAI.cs" />
      <Compile Include="Assets\Scripts\Attack.cs" />
      <Compile Include="Assets\Scripts\Attacker.cs" />
      <Compile Include="Assets\Scripts\Damagable.cs" />
@@ -84,12 +85,6 @@
  </Reference>
  <Reference Include="UnityEngine.VR">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.iOS.Extensions.Xcode">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.iOS.Extensions.Common">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
