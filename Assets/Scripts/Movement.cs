@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class Movement : MonoBehaviour {
 
 	public float speed = 5.0f;
@@ -13,7 +14,9 @@ public class Movement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		GetComponent<Rigidbody2D>().velocity =  new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * speed;
-
+		Vector3 moveDir = new Vector3 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical")).normalized;
+		GetComponent<Rigidbody2D>().velocity =  moveDir * speed;
+		GetComponent<Animator> ().SetFloat ("XMovement", moveDir.x);
+		GetComponent<Animator> ().SetFloat ("YMovement", moveDir.y);
 	}
 }
