@@ -46,7 +46,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Charge.cs" />
      <Compile Include="Assets\Game Jam Template\Scripts\DontDestroy.cs" />
      <Compile Include="Assets\Game Jam Template\Scripts\EventSystemChecker.cs" />
      <Compile Include="Assets\Game Jam Template\Scripts\Pause.cs" />
@@ -59,10 +58,12 @@
      <Compile Include="Assets\Scripts\AI\BanditAI.cs" />
      <Compile Include="Assets\Scripts\Attack.cs" />
      <Compile Include="Assets\Scripts\Attacker.cs" />
+     <Compile Include="Assets\Scripts\Charge.cs" />
      <Compile Include="Assets\Scripts\Damagable.cs" />
      <Compile Include="Assets\Scripts\HitpointBar.cs" />
      <Compile Include="Assets\Scripts\Movement.cs" />
      <Compile Include="Assets\Scripts\ProjectileAttacker.cs" />
+     <Compile Include="Assets\Scripts\ScreenShake.cs" />
      <None Include="Assets\Game Jam Template\Fonts\OpenSans\License!.txt" />
      <None Include="Assets\AssetStore\SimpleFX\Materials\UnlitVertexColour_Alpha.shader" />
      <None Include="Assets\Game Jam Template\GameJamTemplateReadMe.txt" />

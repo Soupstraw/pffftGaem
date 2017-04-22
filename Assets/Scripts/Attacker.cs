@@ -25,8 +25,27 @@ public class Attacker : MonoBehaviour {
 				Damagable dam = col.GetComponent<Damagable> ();
 				if (dam != null) {
 					dam.DealDamage (damage);
+					FindObjectOfType<ScreenShake> ().ApplyShake (10f);
+					SpriteRenderer sprite = col.GetComponent<SpriteRenderer> ();
+					if(sprite != null && damage > 0 && dam.GetComponent<Animator>() == null){
+						StartCoroutine (HitGlow(10, sprite));
+					}
 				}
 			}
+		}
+	}
+
+	IEnumerator HitGlow(float damage, SpriteRenderer sprite){
+		float startTime = Time.time;
+		float duration = damage * 0.05f;
+
+		while (Time.time - startTime < duration && sprite != null) {
+			sprite.color = Color.Lerp (Color.red, Color.white, (Time.time - startTime) / duration);
+			yield return null;
+		}
+
+		if (sprite != null) {
+			sprite.color = Color.white;
 		}
 	}
 }
