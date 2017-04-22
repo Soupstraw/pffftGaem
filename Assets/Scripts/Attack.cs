@@ -21,6 +21,6 @@ public class Attack : MonoBehaviour {
 		if (Input.GetButtonDown ("HeavyAttack")) {
 			anim.SetTrigger ("HeavyAttack");
 		}
-		reticule.transform.rotation = Quaternion.FromToRotation (Vector3.down, Input.mousePosition - new Vector3(Screen.width/2, Screen.height/2));
+		reticule.transform.rotation = Quaternion.Euler (60, 0, 0) * Quaternion.FromToRotation (Vector3.down, Input.mousePosition - new Vector3 (Screen.width / 2, Screen.height / 2));
 	}
 }
