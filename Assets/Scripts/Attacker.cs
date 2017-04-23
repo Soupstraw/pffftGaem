@@ -26,6 +26,17 @@ public class Attacker : MonoBehaviour {
 		if (OnAttack != null) {
 			OnAttack (this);
 		}
+		if (gameObject.name == "HeavyAttack") {
+			ContactFilter2D filter = new ContactFilter2D ();
+			filter.SetLayerMask (receiver);
+			Collider2D[] res = new Collider2D[100];
+			Physics2D.OverlapCollider (collider, filter, res);
+			foreach(Collider2D col in res){
+				if (col != null) {
+					col.GetComponent<EvadeHeavy> ().TryEvade (gameObject);
+				}
+			}
+		}
 	}
 
 	public void DealDamage(){

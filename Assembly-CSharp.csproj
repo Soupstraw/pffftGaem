@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\AttackSoundManager.cs" />
+     <Compile Include="Assets\EvadeHeavy.cs" />
      <Compile Include="Assets\FootstepScript.cs" />
      <Compile Include="Assets\Game Jam Template\Scripts\DontDestroy.cs" />
      <Compile Include="Assets\Game Jam Template\Scripts\EventSystemChecker.cs" />
