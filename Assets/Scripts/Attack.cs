@@ -22,6 +22,8 @@ public class Attack : MonoBehaviour {
 	public Attacker spinAttack;
 	public Attacker turnAttack;
 
+	public ParticleSystem slamParticles;
+
 	public float movementMultiplier = 1.0f;
 	public bool charging = false;
 	public bool canAttack = true;
@@ -70,6 +72,10 @@ public class Attack : MonoBehaviour {
 		turnAttack.WarnAttack ();
 	}
 
+	public void BashAnimation(){
+		GameObject.FindWithTag("Player").GetComponent<Animator> ().SetTrigger("Bash");
+	}
+
 	void Start(){
 		anim = GetComponent<Animator> ();
 	}
@@ -80,6 +86,10 @@ public class Attack : MonoBehaviour {
 
 	public void Spin(float speed){
 		StartCoroutine (SpinCoroutine (speed));
+	}
+
+	public void SlamParticles(){
+		slamParticles.Play ();
 	}
 
 	IEnumerator SpinCoroutine(float speed){
@@ -106,6 +116,7 @@ public class Attack : MonoBehaviour {
 			Vector3 screenPos = Camera.main.WorldToScreenPoint (transform.position);
 			screenPos.Scale (new Vector3 (1, 1, 0));
 			Quaternion target = Quaternion.Euler (angle, 0, 0) * Quaternion.FromToRotation (Vector3.down, Input.mousePosition - screenPos);
+			//Quaternion target = Quaternion.Euler (angle, 0, 0) * Quaternion.FromToRotation (Vector3.down, GetComponentInParent<Movement>().lastNotZero);
 			transform.rotation = Quaternion.RotateTowards (transform.rotation, target, rotationSpeed * Time.deltaTime);
 			//attackDir = Vector3.zero;
 		}

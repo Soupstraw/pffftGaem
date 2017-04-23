@@ -39,7 +39,8 @@ public class Damagable : MonoBehaviour {
 	}
 
 	public void Knockback(Vector3 dir){
-		StartCoroutine (KnockbackCoroutine (dir));
+		if(rigid != null)
+			StartCoroutine (KnockbackCoroutine (dir));
 	}
 
 	IEnumerator KnockbackCoroutine(Vector3 dir){
@@ -50,9 +51,6 @@ public class Damagable : MonoBehaviour {
 		
 		float startTime = Time.time;
 		while(Time.time - startTime < dir.magnitude){
-			if (gameObject == null) {
-				yield break;
-			}
 			rigid.velocity = dir.normalized * (dir.magnitude - Time.time + startTime) * dir.magnitude;
 			yield return null;
 		}

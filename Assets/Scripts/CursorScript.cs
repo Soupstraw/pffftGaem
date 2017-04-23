@@ -7,7 +7,7 @@ public class CursorScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Cursor.visible = false;
-		Cursor.lockState = CursorLockMode.None;
+		Cursor.lockState = CursorLockMode.Confined;
 	}
 	
 	// Update is called once per frame

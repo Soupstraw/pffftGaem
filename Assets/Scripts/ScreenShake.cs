@@ -19,7 +19,7 @@ public class ScreenShake : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		camera.transform.position = transform.position + new Vector3 (amplitude * intensity * Mathf.Sin(intensity*freqMultiplier), amplitude * intensity / 2 * Mathf.Sin(intensity/3*freqMultiplier), -10);
+		camera.transform.localPosition = new Vector3 (amplitude * intensity * Mathf.Sin(intensity*freqMultiplier), amplitude * intensity / 2 * Mathf.Sin(intensity/3*freqMultiplier), -10);
 		intensity = Mathf.Clamp (intensity - Time.deltaTime * decay, 0, float.PositiveInfinity);
 	}
 
