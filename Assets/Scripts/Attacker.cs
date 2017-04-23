@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class Attacker : MonoBehaviour {
 
+	public int ticks = 1;
 	public float damage;
 	public float knockback = 0f;
 	public LayerMask receiver;
@@ -25,7 +26,7 @@ public class Attacker : MonoBehaviour {
 			if (col != null) {
 				Damagable dam = col.GetComponent<Damagable> ();
 				if (dam != null) {
-					dam.DealDamage (damage);
+					dam.DealDamageOverTime (damage, ticks);
 					FindObjectOfType<ScreenShake> ().ApplyShake (10f);
 					SpriteRenderer sprite = col.GetComponent<SpriteRenderer> ();
 					if(sprite != null && damage > 0 && dam.GetComponent<Animator>() == null){

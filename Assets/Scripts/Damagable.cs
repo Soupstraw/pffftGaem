@@ -19,7 +19,7 @@ public class Damagable : MonoBehaviour {
 		
 	}
 
-	public void DealDamageOverTime(float damage, float time){
+	public void DealDamageOverTime(float damage, int time){
 		StartCoroutine (DamageCoroutine(damage, time));
 	}
 
@@ -42,9 +42,8 @@ public class Damagable : MonoBehaviour {
 		Destroy (gameObject);
 	}
 
-	IEnumerator DamageCoroutine(float damage, float time){
-		float startTime = Time.time;
-		while (Time.time - startTime <= time) {
+	IEnumerator DamageCoroutine(float damage, int time){
+		for(int i = 0; i < time; i++){
 			DealDamage (damage / time);
 			yield return new WaitForSeconds (1.0f);
 		}
