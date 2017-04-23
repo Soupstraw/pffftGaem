@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class VillagerAI : MonoBehaviour {
 	Vector3 startPosition;
+	[Range(1, 120)]
 	public int inverseWobbleFactor = 2;
+	[Range(1, 10)]
 	public float wanderDistance = 1;
 	int counter = 0;
 	Vector2 diff = Vector2.zero;
