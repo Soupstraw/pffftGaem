@@ -93,10 +93,14 @@ public class Attack : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetButtonDown ("LightAttack") && canAttack) {
-			StartCoroutine(TriggerCoroutine ("LightAttack"));
+			anim.SetBool ("LightAttack", true);
 		}
 		if (Input.GetButtonDown ("HeavyAttack") && canAttack) {
-			StartCoroutine(TriggerCoroutine ("HeavyAttack"));
+			anim.SetBool ("HeavyAttack", true);
+		}
+		if (!canAttack) {
+			anim.SetBool ("HeavyAttack", false);
+			anim.SetBool ("LightAttack", false);
 		}
 		if (anim.GetCurrentAnimatorStateInfo (0).IsName ("Idle") && updateRotation) {
 			Vector3 screenPos = Camera.main.WorldToScreenPoint (transform.position);
@@ -106,11 +110,5 @@ public class Attack : MonoBehaviour {
 			//attackDir = Vector3.zero;
 		}
 		attackDir = transform.rotation * Vector3.down;
-	}
-
-	IEnumerator TriggerCoroutine(string param){
-		anim.SetBool (param, true);
-		yield return new WaitForSeconds (triggerTime);
-		anim.SetBool (param, false);
 	}
 }
