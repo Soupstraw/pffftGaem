@@ -70,6 +70,10 @@ public class Attack : MonoBehaviour {
 		turnAttack.WarnAttack ();
 	}
 
+	public void BashAnimation(){
+		GameObject.FindWithTag("Player").GetComponent<Animator> ().SetTrigger("Bash");
+	}
+
 	void Start(){
 		anim = GetComponent<Animator> ();
 	}
