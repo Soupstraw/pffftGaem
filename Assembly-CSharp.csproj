@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\AI\EvasiveAI.cs" />
      <Compile Include="Assets\Scripts\AI\KnightAI.cs" />
      <Compile Include="Assets\Scripts\AI\RogueAI.cs" />
+     <Compile Include="Assets\Scripts\AI\VillagerAI.cs" />
      <Compile Include="Assets\Scripts\Aggro.cs" />
      <Compile Include="Assets\Scripts\Attack.cs" />
      <Compile Include="Assets\Scripts\Attacker.cs" />
