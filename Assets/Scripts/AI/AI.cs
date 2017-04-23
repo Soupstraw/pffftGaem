@@ -56,7 +56,7 @@ public class AI : MonoBehaviour {
 		float startTime = Time.time;
 		boxColl.enabled = false;
 		while (Time.time - startTime < time) {
-			rb.velocity = direction.normalized * speed;
+			rb.velocity = direction.normalized * (speed * 2 * (1 - (Time.time - startTime) / time));
 			yield return null;
 		}
 		boxColl.enabled = true;
