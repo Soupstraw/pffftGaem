@@ -7,7 +7,7 @@ public class Movement : MonoBehaviour {
 	
 	public float speed = 5.0f;
 
-	private Vector3 lastNotZero = new Vector3();
+	public Vector3 lastNotZero = new Vector3();
 
 	// Use this for initialization
 	void Start () {
