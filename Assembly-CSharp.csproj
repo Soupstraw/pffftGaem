@@ -60,6 +60,7 @@
      <Compile Include="Assets\Scripts\AI\ArcherAI.cs" />
      <Compile Include="Assets\Scripts\AI\BanditAI.cs" />
      <Compile Include="Assets\Scripts\AI\EvadeHeavy.cs" />
+     <Compile Include="Assets\Scripts\AI\EvasiveAI.cs" />
      <Compile Include="Assets\Scripts\AI\RogueAI.cs" />
      <Compile Include="Assets\Scripts\Aggro.cs" />
      <Compile Include="Assets\Scripts\Attack.cs" />
@@ -100,12 +101,6 @@
  </Reference>
  <Reference Include="UnityEngine.VR">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.iOS.Extensions.Xcode">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.iOS.Extensions.Common">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

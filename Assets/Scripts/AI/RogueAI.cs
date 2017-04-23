@@ -22,6 +22,14 @@ public class RogueAI : MonoBehaviour {
 		player = GameObject.FindWithTag("Player");
 	}
 
+	void OnEnable() {
+		Attacker.OnAttack += TryLocalEvade;
+	}
+
+	void OnDisable() {
+		Attacker.OnAttack -= TryLocalEvade;
+	}
+
 	//Stays at medium range, if the player gets too close, stabs them and jumps away.
 	void Update () {
 		if (!evading && ai.enabled) {
@@ -60,6 +68,36 @@ public class RogueAI : MonoBehaviour {
 		StartCoroutine (ai.Evade (direction, aggroDistance / evadeTime, evadeTime));
 		yield return new WaitForSeconds (evadeTime);
 		evading = false;
+	}
+
+	public IEnumerator EvadeCooldown2() {
+		yield return new WaitForSeconds (evadeTime);
+		evading = false;
+	}
+
+	public void TryLocalEvade(Attacker damage) {
+		GameObject attack = damage.gameObject;
+		if (ai.enabled && attack.name == "SlamAttack") {
+			Vector3 radius = transform.position - attack.transform.position;
+			float dodgeDistance = attack.transform.localScale.x / 2 + 2 - Vector3.Magnitude (radius);
+			if (dodgeDistance > 0) {
+				radius = radius.normalized * (dodgeDistance);
+				StartCoroutine(ai.Evade (radius, dodgeDistance / evadeTime, evadeTime));
+				evading = true;
+				StartCoroutine (EvadeCooldown2 ());
+			}
+		}
+	}
+
+	public void TryEvade(GameObject attack) {
+		if (!ai.enabled) {
+			return;
+		}
+		float evadeRotation = (attack.transform.eulerAngles.z + Random.Range (0, 2) * 180) / 180 * Mathf.PI;
+		Vector3 evadeDirection = new Vector3(Mathf.Cos(evadeRotation), Mathf.Sin(evadeRotation), 0);
+		StartCoroutine (ai.Evade (evadeDirection, 2.0f / evadeTime, evadeTime));
+		evading = true;
+		StartCoroutine (EvadeCooldown2 ());
 	}
 
 }
