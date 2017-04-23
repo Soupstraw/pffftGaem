@@ -7,6 +7,8 @@ public class Attack : MonoBehaviour {
 
 	public float angle = 1f;
 
+	public Vector3 attackDir = new Vector3();
+
 	private Animator anim;
 
 	public float rotationSpeed = 10f;
@@ -87,11 +89,13 @@ public class Attack : MonoBehaviour {
 		if (Input.GetButtonDown ("HeavyAttack")) {
 			anim.SetTrigger ("HeavyAttack");
 		}
-		if (anim.GetCurrentAnimatorStateInfo (0).IsName("Idle") && updateRotation) {
+		if (anim.GetCurrentAnimatorStateInfo (0).IsName ("Idle") && updateRotation) {
 			Vector3 screenPos = Camera.main.WorldToScreenPoint (transform.position);
-			screenPos.Scale (new Vector3(1, 1, 0));
+			screenPos.Scale (new Vector3 (1, 1, 0));
 			Quaternion target = Quaternion.Euler (angle, 0, 0) * Quaternion.FromToRotation (Vector3.down, Input.mousePosition - screenPos);
-			transform.rotation = Quaternion.RotateTowards(transform.rotation, target, rotationSpeed * Time.deltaTime);
+			transform.rotation = Quaternion.RotateTowards (transform.rotation, target, rotationSpeed * Time.deltaTime);
+			//attackDir = Vector3.zero;
 		}
+		attackDir = transform.rotation * Vector3.down;
 	}
 }

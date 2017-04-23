@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 public class Movement : MonoBehaviour {
-
+	
 	public float speed = 5.0f;
 
 	private Vector3 lastNotZero = new Vector3();
@@ -24,7 +24,13 @@ public class Movement : MonoBehaviour {
 		}
 		GetComponent<Rigidbody2D>().velocity =  moveDir * speed;
 
-		GetComponent<Animator> ().SetFloat ("XMovement", animDir.x);
-		GetComponent<Animator> ().SetFloat ("YMovement", animDir.y);
+		Vector3 attackDir = GetComponentInChildren<Attack> ().attackDir;
+		if (moveDir.magnitude != 0) {
+			GetComponent<Animator> ().SetFloat ("XMovement", attackDir.x);
+			GetComponent<Animator> ().SetFloat ("YMovement", attackDir.y);
+		} else {
+			GetComponent<Animator> ().SetFloat ("XMovement", attackDir.x * .1f);
+			GetComponent<Animator> ().SetFloat ("YMovement", attackDir.y * .1f);
+		}
 	}
 }
