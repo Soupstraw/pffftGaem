@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class Attacker : MonoBehaviour {
 
+	public delegate void AttackAction(Attacker attacker);
+	public event AttackAction OnAttack;
+
 	public int ticks = 1;
 	public float damage;
 	public float knockback = 0f;
@@ -16,7 +19,11 @@ public class Attacker : MonoBehaviour {
 	void Start () {
 		collider = GetComponent<Collider2D>();
 	}
-	
+
+	public void WarnAttack(){
+		OnAttack (this);
+	}
+
 	public void DealDamage(){
 		ContactFilter2D filter = new ContactFilter2D ();
 		filter.SetLayerMask (receiver);
