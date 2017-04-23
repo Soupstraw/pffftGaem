@@ -11,7 +11,7 @@ public class EvadeHeavy : MonoBehaviour {
 		banditAI = gameObject.GetComponent<BanditAI> ();
 	}
 
-	void TryEvade(GameObject attack) {
+	public void TryEvade(GameObject attack) {
 		if (!banditAI.ai.enabled) {
 			return;
 		}
