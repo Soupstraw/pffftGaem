@@ -24,11 +24,13 @@ public class SpriteSwitcher : MonoBehaviour
         if(other.tag == "Player")
         {
            gameObject.GetComponent<SpriteRenderer>().sprite = newSprite;
+            
             particleEffect.gameObject.SetActive(true);
             gP.thingsSmashed += 1;
             gP.smashedThingsCount.text = gP.thingsSmashed.ToString();
             if (isSquishyMeatBag)
             {
+                gameObject.GetComponent<VillagerAI>().enabled = false;
                 bloodSplatter.gameObject.SetActive(true);
             }
             //gameObject.GetComponent<Sprite>() =
