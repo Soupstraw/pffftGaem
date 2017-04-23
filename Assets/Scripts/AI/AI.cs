@@ -17,6 +17,10 @@ public class AI : MonoBehaviour {
 		boxColl = gameObject.GetComponent<BoxCollider2D> ();
 	}
 
+	public void Stop() {
+		rb.velocity = Vector2.zero;
+	}
+
 	public void Beeline() {
 		Vector3 direction = player.transform.position - transform.position;
 		if (Vector3.Magnitude (direction) > 0.1) {
