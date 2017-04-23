@@ -6,6 +6,7 @@ public class ScreenShake : MonoBehaviour {
 
 	public Camera camera;
 
+	public float intensityMax = 20f;
 	public float amplitude = 0.01f;
 	public float freqMultiplier = 0.5f;
 	public float decay = 1.0f;
@@ -20,7 +21,7 @@ public class ScreenShake : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		camera.transform.localPosition = new Vector3 (amplitude * intensity * Mathf.Sin(intensity*freqMultiplier), amplitude * intensity / 2 * Mathf.Sin(intensity/3*freqMultiplier), -10);
-		intensity = Mathf.Clamp (intensity - Time.deltaTime * decay, 0, float.PositiveInfinity);
+		intensity = Mathf.Clamp (intensity - Time.deltaTime * decay, 0, intensityMax);
 	}
 
 	public void ApplyShake(float intensity){
