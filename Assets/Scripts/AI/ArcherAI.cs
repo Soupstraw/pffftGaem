@@ -22,7 +22,7 @@ public class ArcherAI : MonoBehaviour {
 
 	//Stays at optimal distance, only fires between two distances.
 	void Update () {
-		if (!casting) {
+		if (!casting && ai.enabled) {
 			float distance = Vector3.Distance (transform.position, player.transform.position);
 			ai.KeepDistance (kiteDistance);
 			//Pause to fire.

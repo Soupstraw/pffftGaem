@@ -24,7 +24,7 @@ public class RogueAI : MonoBehaviour {
 
 	//Stays at medium range, if the player gets too close, stabs them and jumps away.
 	void Update () {
-		if (!evading) {
+		if (!evading && ai.enabled) {
 			float distance = Vector3.Distance (transform.position, player.transform.position);
 			if (meleeNoCD && distance < aggroDistance) { //If player is close, do the evade combo.
 				Vector3 evadeDirection = player.transform.position - transform.position;
