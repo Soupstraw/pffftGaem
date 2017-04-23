@@ -50,6 +50,9 @@ public class Damagable : MonoBehaviour {
 		
 		float startTime = Time.time;
 		while(Time.time - startTime < dir.magnitude){
+			if (gameObject == null) {
+				yield break;
+			}
 			rigid.velocity = dir.normalized * (dir.magnitude - Time.time + startTime) * dir.magnitude;
 			yield return null;
 		}

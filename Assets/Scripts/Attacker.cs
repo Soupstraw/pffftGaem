@@ -33,7 +33,7 @@ public class Attacker : MonoBehaviour {
 			Physics2D.OverlapCollider (collider, filter, res);
 			foreach(Collider2D col in res){
 				if (col != null) {
-					col.GetComponent<EvadeHeavy> ().TryEvade (gameObject);
+					col.GetComponent<EvasiveAI> ().TryEvade (gameObject);
 				}
 			}
 		}
