@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,7 +27,7 @@ public class Attacker : MonoBehaviour {
 		if (OnAttack != null) {
 			OnAttack (this);
 		}
-		if (gameObject.name == "HeavyAttack") {
+		if (gameObject.name == "HeavyAttack" || gameObject.name == "LightAttack") {
 			ContactFilter2D filter = new ContactFilter2D ();
 			filter.SetLayerMask (receiver);
 			Collider2D[] res = new Collider2D[100];
