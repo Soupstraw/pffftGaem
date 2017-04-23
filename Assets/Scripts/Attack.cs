@@ -8,7 +8,8 @@ public class Attack : MonoBehaviour {
 	public delegate void AttackAction(Collider2D collider);
 	public event AttackAction OnHeavyAttack;
 	public event AttackAction OnLightAttack;
-
+	public event AttackAction OnSlamAttack;
+	public event AttackAction OnSpinAttack;
 
 	private Animator anim;
 
@@ -20,18 +21,26 @@ public class Attack : MonoBehaviour {
 	public Attacker spinAttack;
 
 	public void LightAttack(){
+		if(OnLightAttack != null)
+			OnLightAttack (lightAttack.GetComponent<Collider2D>());
 		lightAttack.DealDamage ();
 	}
 
 	public void HeavyAttack(){
+		if(OnHeavyAttack != null)
+			OnHeavyAttack (lightAttack.GetComponent<Collider2D>());
 		heavyAttack.DealDamage ();
 	}
 
 	public void SlamAttack(){
+		if(OnSlamAttack != null)
+			OnSlamAttack (lightAttack.GetComponent<Collider2D>());
 		slamAttack.DealDamage ();
 	}
 
 	public void SpinAttack(){
+		if(OnSpinAttack != null)
+			OnSpinAttack (lightAttack.GetComponent<Collider2D>());
 		spinAttack.DealDamage ();
 	}
 
