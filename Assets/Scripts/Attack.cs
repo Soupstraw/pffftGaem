@@ -22,6 +22,8 @@ public class Attack : MonoBehaviour {
 	public Attacker spinAttack;
 	public Attacker turnAttack;
 
+	public ParticleSystem slamParticles;
+
 	public float movementMultiplier = 1.0f;
 	public bool charging = false;
 	public bool canAttack = true;
@@ -84,6 +86,10 @@ public class Attack : MonoBehaviour {
 
 	public void Spin(float speed){
 		StartCoroutine (SpinCoroutine (speed));
+	}
+
+	public void SlamParticles(){
+		slamParticles.Play ();
 	}
 
 	IEnumerator SpinCoroutine(float speed){
