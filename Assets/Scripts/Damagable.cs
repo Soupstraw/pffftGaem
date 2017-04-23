@@ -28,7 +28,7 @@ public class Damagable : MonoBehaviour {
 
 	public void DealDamage(float damage){
 		health -= damage;
-		Debug.Log ("Health: " + health);
+		//Debug.Log ("Health: " + health);
 		if(splatter != null){
 			GameObject splat = Instantiate (splatter, transform.position, Quaternion.Euler(0, 0, Random.value * 360f));;
 			splat.transform.localScale *= damage / healthMax;
@@ -47,7 +47,7 @@ public class Damagable : MonoBehaviour {
 		if (ai != null) {
 			ai.enabled = false;
 		}
-
+		
 		float startTime = Time.time;
 		while(Time.time - startTime < dir.magnitude){
 			rigid.velocity = dir.normalized * (dir.magnitude - Time.time + startTime) * dir.magnitude;
