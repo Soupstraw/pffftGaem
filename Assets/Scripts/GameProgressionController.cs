@@ -7,11 +7,12 @@ public class GameProgressionController : MonoBehaviour
 {
     public GameObject progressionPanel;
     public Text progressionText;
-    private string pauseC;
+    private PauseController pauseC;
     //public GameObject pauseController;
 
     private void Start()
     {
+        pauseC = gameObject.GetComponent<PauseController>();
         EnableProgressionPanel();
     }
 
@@ -20,8 +21,9 @@ public class GameProgressionController : MonoBehaviour
         progressionPanel.gameObject.SetActive(true);
         
         progressionText.text = "hahaha test";
-        gameObject.GetComponent<PauseController>().isGamePaused = false;
-        gameObject.GetComponent<PauseController>().PauseGame();
+        pauseC.isGamePaused = false;
+        pauseC.PauseGame();
+       
     }
 
 
