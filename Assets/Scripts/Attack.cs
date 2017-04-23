@@ -20,6 +20,13 @@ public class Attack : MonoBehaviour {
 	public Attacker spinAttack;
 	public Attacker turnAttack;
 
+	public float movementMultiplier = 1.0f;
+	public bool charging = false;
+
+	public void ScreenShake(float intensity){
+		FindObjectOfType<ScreenShake>().ApplyShake (intensity);
+	}
+
 	public void LightAttack(){
 		lightAttack.DealDamage ();
 	}
