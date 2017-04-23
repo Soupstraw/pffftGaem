@@ -15,7 +15,7 @@ public class EvadeHeavy : MonoBehaviour {
 		if (!banditAI.ai.enabled) {
 			return;
 		}
-		float evadeRotation = (attack.transform.eulerAngles.z + Random.Range (0, 2) * 180 - 90) / 180 * Mathf.PI;
+		float evadeRotation = (attack.transform.eulerAngles.z + Random.Range (0, 2) * 180) / 180 * Mathf.PI;
 		Vector3 evadeDirection = new Vector3(Mathf.Cos(evadeRotation), Mathf.Sin(evadeRotation), 0);
 		StartCoroutine (banditAI.ai.Evade (evadeDirection, 2.0f / banditAI.evadeTime, banditAI.evadeTime));
 		banditAI.evading = true;
