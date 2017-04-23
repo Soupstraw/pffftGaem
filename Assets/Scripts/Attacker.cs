@@ -21,7 +21,9 @@ public class Attacker : MonoBehaviour {
 	}
 
 	public void WarnAttack(){
-		OnAttack (this);
+		if (OnAttack != null) {
+			OnAttack (this);
+		}
 	}
 
 	public void DealDamage(){

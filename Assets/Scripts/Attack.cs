@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class Attack : MonoBehaviour {
 
+	public float angle = 1f;
+
 	private Animator anim;
 
 	public float rotationSpeed = 10f;
@@ -70,7 +72,7 @@ public class Attack : MonoBehaviour {
 	}
 
 	IEnumerator SpinCoroutine(float speed){
-		Quaternion target = Quaternion.Euler(60, 0, transform.rotation.eulerAngles.z - 179f);
+		Quaternion target = Quaternion.Euler(angle, 0, transform.rotation.eulerAngles.z - 179f);
 		while (Quaternion.Angle(transform.rotation, target) > 0.1f) {
 			transform.rotation = Quaternion.RotateTowards(transform.rotation, target, speed * Time.deltaTime);
 			yield return null;
@@ -88,7 +90,7 @@ public class Attack : MonoBehaviour {
 		if (anim.GetCurrentAnimatorStateInfo (0).IsName("Idle") && updateRotation) {
 			Vector3 screenPos = Camera.main.WorldToScreenPoint (transform.position);
 			screenPos.Scale (new Vector3(1, 1, 0));
-			Quaternion target = Quaternion.Euler (60, 0, 0) * Quaternion.FromToRotation (Vector3.down, Input.mousePosition - screenPos);
+			Quaternion target = Quaternion.Euler (angle, 0, 0) * Quaternion.FromToRotation (Vector3.down, Input.mousePosition - screenPos);
 			transform.rotation = Quaternion.RotateTowards(transform.rotation, target, rotationSpeed * Time.deltaTime);
 		}
 	}
