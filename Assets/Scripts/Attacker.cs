@@ -36,6 +36,7 @@ public class Attacker : MonoBehaviour {
 				Damagable dam = col.GetComponent<Damagable> ();
 				if (dam != null) {
 					dam.DealDamageOverTime (damage, ticks);
+					dam.Knockback ((dam.transform.position - collider.transform.position).normalized * knockback);
 					FindObjectOfType<ScreenShake> ().ApplyShake (10f);
 					SpriteRenderer sprite = col.GetComponent<SpriteRenderer> ();
 					if(sprite != null && damage > 0 && dam.GetComponent<Animator>() == null){
