@@ -24,6 +24,7 @@ public class Attack : MonoBehaviour {
 
 	public float movementMultiplier = 1.0f;
 	public bool charging = false;
+	public bool canAttack = true;
 
 	public void ScreenShake(float intensity){
 		FindObjectOfType<ScreenShake>().ApplyShake (intensity);
@@ -91,10 +92,10 @@ public class Attack : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown ("LightAttack")) {
+		if (Input.GetButtonDown ("LightAttack") && canAttack) {
 			StartCoroutine(TriggerCoroutine ("LightAttack"));
 		}
-		if (Input.GetButtonDown ("HeavyAttack")) {
+		if (Input.GetButtonDown ("HeavyAttack") && canAttack) {
 			StartCoroutine(TriggerCoroutine ("HeavyAttack"));
 		}
 		if (anim.GetCurrentAnimatorStateInfo (0).IsName ("Idle") && updateRotation) {
