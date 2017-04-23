@@ -25,7 +25,7 @@ public class Movement : MonoBehaviour {
 		GetComponent<Rigidbody2D>().velocity =  moveDir * speed;
 
 		Vector3 attackDir = GetComponentInChildren<Attack> ().attackDir;
-		if (moveDir.magnitude != 0) {
+		if (moveDir.magnitude > 0) {
 			GetComponent<Animator> ().SetFloat ("XMovement", attackDir.x);
 			GetComponent<Animator> ().SetFloat ("YMovement", attackDir.y);
 		} else {

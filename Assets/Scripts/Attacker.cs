@@ -6,7 +6,7 @@ using UnityEngine;
 public class Attacker : MonoBehaviour {
 
 	public delegate void AttackAction(Attacker attacker);
-	public event AttackAction OnAttack;
+	public static event AttackAction OnAttack;
 
 	public int ticks = 1;
 	public float damage;
