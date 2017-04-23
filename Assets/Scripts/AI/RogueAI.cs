@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AI))]
-public class RogueAI : MonoBehaviour {
+public class RogueAI : MonoBehaviour, EvasiveAI {
 	GameObject player;
 	AI ai;
 	bool meleeNoCD = true;
