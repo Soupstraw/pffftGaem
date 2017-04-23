@@ -12,6 +12,8 @@ public class Damagable : MonoBehaviour {
 
 	public ParticleSystem hitParticle;
 
+	public GameObject failPanel;
+
 	private Rigidbody2D rigid;
 
 	// Use this for initialization
@@ -69,7 +71,12 @@ public class Damagable : MonoBehaviour {
 		if (splatter != null) {
 			Instantiate (splatter, transform.position, Quaternion.Euler(0, 0, Random.value * 360f));
 		}
-		Destroy (gameObject);
+		if (gameObject.tag == "Player") {
+			failPanel.SetActive(true);
+			FindObjectOfType<PauseController> ().PauseGame ();
+			FindObjectOfType<CursorScript> ().enabled = false;
+		}else
+			Destroy (gameObject);
 	}
 
 	IEnumerator DamageCoroutine(float damage, int time){

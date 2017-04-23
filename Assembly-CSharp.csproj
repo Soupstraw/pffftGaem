@@ -46,8 +46,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\AttackSoundManager.cs" />
-     <Compile Include="Assets\FootstepScript.cs" />
      <Compile Include="Assets\Game Jam Template\Scripts\DontDestroy.cs" />
      <Compile Include="Assets\Game Jam Template\Scripts\EventSystemChecker.cs" />
      <Compile Include="Assets\Game Jam Template\Scripts\Pause.cs" />
@@ -66,10 +64,12 @@
      <Compile Include="Assets\Scripts\AI\VillagerAI.cs" />
      <Compile Include="Assets\Scripts\Aggro.cs" />
      <Compile Include="Assets\Scripts\Attack.cs" />
+     <Compile Include="Assets\Scripts\AttackSoundManager.cs" />
      <Compile Include="Assets\Scripts\Attacker.cs" />
      <Compile Include="Assets\Scripts\Charge.cs" />
      <Compile Include="Assets\Scripts\CursorScript.cs" />
      <Compile Include="Assets\Scripts\Damagable.cs" />
+     <Compile Include="Assets\Scripts\FootstepScript.cs" />
      <Compile Include="Assets\Scripts\Forest.cs" />
      <Compile Include="Assets\Scripts\ForestSlowdown.cs" />
      <Compile Include="Assets\Scripts\GameProgressionController.cs" />
@@ -77,6 +77,7 @@
      <Compile Include="Assets\Scripts\Movement.cs" />
      <Compile Include="Assets\Scripts\PauseController.cs" />
      <Compile Include="Assets\Scripts\ProjectileAttacker.cs" />
+     <Compile Include="Assets\Scripts\RestartGame.cs" />
      <Compile Include="Assets\Scripts\ScreenShake.cs" />
      <Compile Include="Assets\Scripts\SpriteSwitcher.cs" />
      <Compile Include="Assets\Scripts\StoryTrigger.cs" />
