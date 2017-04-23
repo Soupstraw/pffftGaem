@@ -10,6 +10,8 @@ public class Damagable : MonoBehaviour {
 
 	public GameObject splatter;
 
+	public ParticleSystem hitParticle;
+
 	private Rigidbody2D rigid;
 
 	// Use this for initialization
@@ -32,6 +34,9 @@ public class Damagable : MonoBehaviour {
 		if(splatter != null){
 			GameObject splat = Instantiate (splatter, transform.position, Quaternion.Euler(0, 0, Random.value * 360f));;
 			splat.transform.localScale *= damage / healthMax;
+		}
+		if (hitParticle != null) {
+			hitParticle.Play ();
 		}
 		if (health <= 0) {
 			Kill ();
