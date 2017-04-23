@@ -20,7 +20,7 @@ public class GameProgressionController : MonoBehaviour
     {
         progressionPanel.gameObject.SetActive(true);
         
-        progressionText.text = "hahaha test";
+        progressionText.text = "is much amazing!!!";
         pauseC.isGamePaused = false;
         pauseC.PauseGame();
        
