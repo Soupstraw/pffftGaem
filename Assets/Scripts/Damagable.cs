@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Damagable : MonoBehaviour {
 
 	public float health = 100f;
@@ -9,9 +10,11 @@ public class Damagable : MonoBehaviour {
 
 	public GameObject splatter;
 
+	private Rigidbody2D rigid;
+
 	// Use this for initialization
 	void Start () {
-		
+		rigid = GetComponent<Rigidbody2D> ();
 	}
 	
 	// Update is called once per frame
@@ -32,6 +35,27 @@ public class Damagable : MonoBehaviour {
 		}
 		if (health <= 0) {
 			Kill ();
+		}
+	}
+
+	public void Knockback(Vector3 dir){
+		StartCoroutine (KnockbackCoroutine (dir));
+	}
+
+	IEnumerator KnockbackCoroutine(Vector3 dir){
+		AI ai = GetComponent<AI> ();
+		if (ai != null) {
+			ai.enabled = false;
+		}
+
+		float startTime = Time.time;
+		while(Time.time - startTime < dir.magnitude){
+			rigid.velocity = dir.normalized * (dir.magnitude - Time.time + startTime) * dir.magnitude;
+			yield return null;
+		}
+
+		if (ai != null) {
+			ai.enabled = true;
 		}
 	}
 
