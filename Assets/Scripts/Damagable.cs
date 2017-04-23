@@ -26,6 +26,8 @@ public class Damagable : MonoBehaviour {
 	public void DealDamage(float damage){
 		health -= damage;
 		Debug.Log ("Health: " + health);
+		GameObject splat = Instantiate (splatter, transform.position, Quaternion.Euler(0, 0, Random.value * 360f));;
+		splat.transform.localScale *= damage / healthMax;
 		if (health <= 0) {
 			Kill ();
 		}

@@ -70,6 +70,8 @@
      <Compile Include="Assets\Scripts\PauseController.cs" />
      <Compile Include="Assets\Scripts\ProjectileAttacker.cs" />
      <Compile Include="Assets\Scripts\ScreenShake.cs" />
+     <Compile Include="Assets\Scripts\SpriteSwitcher.cs" />
+     <Compile Include="Assets\StoryTrigger.cs" />
      <None Include="Assets\Game Jam Template\Fonts\OpenSans\License!.txt" />
      <None Include="Assets\AssetStore\SimpleFX\Materials\UnlitVertexColour_Alpha.shader" />
      <None Include="Assets\Game Jam Template\GameJamTemplateReadMe.txt" />

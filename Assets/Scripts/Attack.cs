@@ -14,11 +14,10 @@ public class Attack : MonoBehaviour {
 
 	public float rotationSpeed = 10f;
 
-	public GameObject reticule;
-
 	public Attacker lightAttack;
 	public Attacker heavyAttack;
 	public Attacker slamAttack;
+	public Attacker spinAttack;
 
 	public void LightAttack(){
 		lightAttack.DealDamage ();
@@ -32,12 +31,16 @@ public class Attack : MonoBehaviour {
 		slamAttack.DealDamage ();
 	}
 
+	public void SpinAttack(){
+		spinAttack.DealDamage ();
+	}
+
 	void Start(){
 		anim = GetComponent<Animator> ();
 	}
 
 	public void Charge(){
-		GetComponent<Charge> ().DoCharge (Quaternion.Euler (0, 0, reticule.transform.rotation.eulerAngles.z) * Vector3.down);
+		GetComponentInParent<Charge> ().DoCharge (Quaternion.Euler (0, 0, transform.rotation.eulerAngles.z) * Vector3.down);
 	}
 	
 	// Update is called once per frame
@@ -52,11 +55,11 @@ public class Attack : MonoBehaviour {
 			if(OnHeavyAttack != null)
 				OnHeavyAttack (heavyAttack.GetComponent<Collider2D>());
 		}
-		if (anim.GetCurrentAnimatorStateInfo (0).IsTag("Movement")) {
-			Vector3 screenPos = Camera.main.WorldToScreenPoint (reticule.transform.position);
+		if (anim.GetCurrentAnimatorStateInfo (0).IsName("Idle")) {
+			Vector3 screenPos = Camera.main.WorldToScreenPoint (transform.position);
 			screenPos.Scale (new Vector3(1, 1, 0));
 			Quaternion target = Quaternion.Euler (60, 0, 0) * Quaternion.FromToRotation (Vector3.down, Input.mousePosition - screenPos);
-			reticule.transform.rotation = Quaternion.RotateTowards(reticule.transform.rotation, target, rotationSpeed);
+			transform.rotation = Quaternion.RotateTowards(transform.rotation, target, rotationSpeed);
 		}
 	}
 }
