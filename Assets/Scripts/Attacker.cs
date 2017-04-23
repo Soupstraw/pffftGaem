@@ -13,6 +13,8 @@ public class Attacker : MonoBehaviour {
 	public float knockback = 0f;
 	public LayerMask receiver;
 
+	public bool sidewaysKnockback = false;
+
 	private Collider2D collider;
 
 	// Use this for initialization
@@ -36,7 +38,11 @@ public class Attacker : MonoBehaviour {
 				Damagable dam = col.GetComponent<Damagable> ();
 				if (dam != null) {
 					dam.DealDamageOverTime (damage, ticks);
-					dam.Knockback ((dam.transform.position - collider.transform.position).normalized * knockback);
+					if (sidewaysKnockback) {
+						dam.Knockback (transform.rotation * Vector3.right);
+					} else {
+						dam.Knockback ((dam.transform.position - collider.transform.position).normalized * knockback);
+					}
 					FindObjectOfType<ScreenShake> ().ApplyShake (10f);
 					SpriteRenderer sprite = col.GetComponent<SpriteRenderer> ();
 					if(sprite != null && damage > 0 && dam.GetComponent<Animator>() == null){
