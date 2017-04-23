@@ -5,8 +5,12 @@ using UnityEngine.UI;
 
 public class GameProgressionController : MonoBehaviour
 {
+    public int thingsSmashed = 0;
+    [Space]
     public GameObject progressionPanel;
     public Text progressionText;
+    public Text smashedThingsCount;
+
     private PauseController pauseC;
     //public GameObject pauseController;
 
