@@ -11,6 +11,7 @@ public class AttackSoundManager : MonoBehaviour {
 	public AudioClip lightAttack;
 	public AudioClip spinAttack;
 	public AudioClip turnAttack;
+	public AudioClip dashAttack;
 
 	// Use this for initialization
 	void Start () {
@@ -31,5 +32,9 @@ public class AttackSoundManager : MonoBehaviour {
 
 	public void PlayTurnAttack(){
 		source.PlayOneShot (turnAttack);
+	}
+
+	public void PlayDashSound(){
+		source.PlayOneShot (dashAttack);
 	}
 }
