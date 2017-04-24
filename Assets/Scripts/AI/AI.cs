@@ -57,8 +57,8 @@ public class AI : MonoBehaviour {
 
 	public IEnumerator Evade(Vector3 direction, float speed, float time) {
 		float startTime = Time.time;
-		damagable.enabled = false;
 		while (Time.time - startTime < time) {
+			damagable.enabled = false;
 			rb.velocity = direction.normalized * (speed * 2 * (1 - (Time.time - startTime) / time));
 			yield return null;
 		}
