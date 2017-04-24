@@ -54,10 +54,10 @@
      <Compile Include="Assets\Game Jam Template\Scripts\SetAudioLevels.cs" />
      <Compile Include="Assets\Game Jam Template\Scripts\ShowPanels.cs" />
      <Compile Include="Assets\Game Jam Template\Scripts\StartOptions.cs" />
-     <Compile Include="Assets\ParticleKill.cs" />
      <Compile Include="Assets\Scripts\AI\AI.cs" />
      <Compile Include="Assets\Scripts\AI\ArcherAI.cs" />
      <Compile Include="Assets\Scripts\AI\BanditAI.cs" />
+     <Compile Include="Assets\Scripts\AI\DragonAI.cs" />
      <Compile Include="Assets\Scripts\AI\DummyAI.cs" />
      <Compile Include="Assets\Scripts\AI\EvasiveAI.cs" />
      <Compile Include="Assets\Scripts\AI\KnightAI.cs" />
@@ -76,6 +76,7 @@
      <Compile Include="Assets\Scripts\GameProgressionController.cs" />
      <Compile Include="Assets\Scripts\HitpointBar.cs" />
      <Compile Include="Assets\Scripts\Movement.cs" />
+     <Compile Include="Assets\Scripts\ParticleKill.cs" />
      <Compile Include="Assets\Scripts\PauseController.cs" />
      <Compile Include="Assets\Scripts\ProjectileAttacker.cs" />
      <Compile Include="Assets\Scripts\RestartGame.cs" />
