@@ -24,7 +24,7 @@ public class GameProgressionController : MonoBehaviour
     {
         progressionPanel.gameObject.SetActive(true);
         
-        progressionText.text = "is much amazing!!!";
+        progressionText.text = "To move my massive body, press buttons W, A, S, D";
         pauseC.isGamePaused = false;
         pauseC.PauseGame();
        
