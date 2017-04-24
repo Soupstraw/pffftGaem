@@ -90,7 +90,7 @@ public class RogueAI : MonoBehaviour, EvasiveAI {
 	}
 
 	public void TryEvade(GameObject attack) {
-		if (!ai.enabled) {
+		if (!ai.enabled || attack.name == "LightAttack") {
 			return;
 		}
 		float evadeRotation = (attack.transform.eulerAngles.z + Random.Range (0, 2) * 180) / 180 * Mathf.PI;
