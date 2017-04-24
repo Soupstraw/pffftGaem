@@ -9,6 +9,8 @@ public class AttackSoundManager : MonoBehaviour {
 
 	public AudioClip slamSound;
 	public AudioClip lightAttack;
+	public AudioClip spinAttack;
+	public AudioClip turnAttack;
 
 	// Use this for initialization
 	void Start () {
@@ -21,5 +23,13 @@ public class AttackSoundManager : MonoBehaviour {
 
 	public void PlayLightAttack(){
 		source.PlayOneShot (lightAttack);
+	}
+
+	public void PlaySpinAttack(){
+		source.PlayOneShot (spinAttack);
+	}
+
+	public void PlayTurnAttack(){
+		source.PlayOneShot (turnAttack);
 	}
 }

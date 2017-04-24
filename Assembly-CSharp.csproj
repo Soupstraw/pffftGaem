@@ -83,6 +83,7 @@
      <Compile Include="Assets\Scripts\SpriteSwitcher.cs" />
      <Compile Include="Assets\Scripts\StoryTrigger.cs" />
      <Compile Include="Assets\Scripts\WaveSpawner.cs" />
+     <Compile Include="Assets\Scripts\ZSorter.cs" />
      <None Include="Assets\Game Jam Template\Fonts\OpenSans\License!.txt" />
      <None Include="Assets\AssetStore\SimpleFX\Materials\UnlitVertexColour_Alpha.shader" />
      <None Include="Assets\Game Jam Template\GameJamTemplateReadMe.txt" />

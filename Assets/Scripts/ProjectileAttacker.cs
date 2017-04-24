@@ -25,4 +25,11 @@ public class ProjectileAttacker : MonoBehaviour {
 			Destroy (gameObject);
 		}
 	}
+
+	void OnCollisionEnter2D(Collision2D other) {
+		if (other.collider.tag == "Player") {
+			attacker.DealDamage ();
+			Destroy (gameObject);
+		}
+	}
 }
