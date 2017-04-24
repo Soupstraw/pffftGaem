@@ -2,14 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Collider2D))]
 public class Aggro : MonoBehaviour {
 
+	private bool triggered = false;
+
 	private Collider2D coll;
+	private AudioSource audio;
+
+	public AudioClip[] chargeScream;
 
 	// Use this for initialization
 	void Start () {
 		coll = GetComponent<Collider2D> ();
+		audio = GetComponent<AudioSource> ();
 		SetAIEnabled (false);
 	}
 	
@@ -21,6 +28,12 @@ public class Aggro : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D c){
 		if(c.gameObject.tag == "Player"){
 			SetAIEnabled (true);
+			if(audio != null && chargeScream != null && chargeScream.Length > 0){
+				if (!triggered) {
+					audio.PlayOneShot (chargeScream [Random.Range (0, chargeScream.Length)]);
+					triggered = true;
+				}
+			}
 		}
 	}
 
