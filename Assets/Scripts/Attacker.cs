@@ -16,11 +16,11 @@ public class Attacker : MonoBehaviour {
 
 	public bool sidewaysKnockback = false;
 
-	private Collider2D collider;
+	private Collider2D coll;
 
 	// Use this for initialization
 	void Start () {
-		collider = GetComponent<Collider2D>();
+		coll = GetComponent<Collider2D>();
 	}
 
 	public void WarnAttack(){
@@ -31,7 +31,7 @@ public class Attacker : MonoBehaviour {
 			ContactFilter2D filter = new ContactFilter2D ();
 			filter.SetLayerMask (receiver);
 			Collider2D[] res = new Collider2D[100];
-			Physics2D.OverlapCollider (collider, filter, res);
+			Physics2D.OverlapCollider (coll, filter, res);
 			foreach(Collider2D col in res){
 				if (col != null) {
 					EvasiveAI ai = col.GetComponent<EvasiveAI> ();
@@ -46,7 +46,7 @@ public class Attacker : MonoBehaviour {
 		ContactFilter2D filter = new ContactFilter2D ();
 		filter.SetLayerMask (receiver);
 		Collider2D[] res = new Collider2D[100];
-		Physics2D.OverlapCollider (collider, filter, res);
+		Physics2D.OverlapCollider (coll, filter, res);
 		foreach(Collider2D col in res){
 			if (col != null) {
 				Damagable dam = col.GetComponent<Damagable> ();
@@ -55,7 +55,7 @@ public class Attacker : MonoBehaviour {
 					if (sidewaysKnockback) {
 						dam.Knockback (transform.rotation * Vector3.right);
 					} else {
-						dam.Knockback ((dam.transform.position - collider.transform.position).normalized * knockback);
+						dam.Knockback ((dam.transform.position - coll.transform.position).normalized * knockback);
 					}
 					FindObjectOfType<ScreenShake> ().ApplyShake (10f);
 					SpriteRenderer sprite = col.GetComponent<SpriteRenderer> ();

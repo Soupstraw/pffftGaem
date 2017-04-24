@@ -62,4 +62,13 @@ public class AI : MonoBehaviour {
 		boxColl.enabled = true;
 	}
 
+	void Update(){
+		Animator anim = GetComponent<Animator> ();
+		if (anim != null) {
+			Vector3 moveDir = rb.velocity.normalized;
+			anim.SetFloat ("MoveX", moveDir.x);
+			anim.SetFloat ("MoveY", moveDir.y);
+		}
+	}
+
 }

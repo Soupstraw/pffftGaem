@@ -19,10 +19,8 @@ public class Movement : MonoBehaviour {
 		Attack atk = GetComponentInChildren<Attack> ();
 
 		Vector3 moveDir = new Vector3 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical")).normalized;
-		Vector3 animDir = lastNotZero;
 		if (moveDir.magnitude > 0.5f) {
 			lastNotZero = moveDir * 0.1f;
-			animDir = moveDir;
 		}
 		GetComponent<Rigidbody2D>().velocity =  moveDir * speed * atk.movementMultiplier;
 
