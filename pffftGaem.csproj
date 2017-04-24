@@ -86,7 +86,8 @@
     <Compile Include="Assets\Game Jam Template\Scripts\SetAudioLevels.cs" />
     <Compile Include="Assets\Game Jam Template\Scripts\ShowPanels.cs" />
     <Compile Include="Assets\Game Jam Template\Scripts\StartOptions.cs" />
-    <Compile Include="Assets\ParticleKill.cs" />
+    <Compile Include="Assets\Music.cs" />
+    <Compile Include="Assets\MusicTrigger.cs" />
     <Compile Include="Assets\Scripts\AI\AI.cs" />
     <Compile Include="Assets\Scripts\AI\ArcherAI.cs" />
     <Compile Include="Assets\Scripts\AI\BanditAI.cs" />
@@ -108,6 +109,7 @@
     <Compile Include="Assets\Scripts\GameProgressionController.cs" />
     <Compile Include="Assets\Scripts\HitpointBar.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
+    <Compile Include="Assets\Scripts\ParticleKill.cs" />
     <Compile Include="Assets\Scripts\PauseController.cs" />
     <Compile Include="Assets\Scripts\ProjectileAttacker.cs" />
     <Compile Include="Assets\Scripts\RestartGame.cs" />
@@ -115,6 +117,7 @@
     <Compile Include="Assets\Scripts\SpriteSwitcher.cs" />
     <Compile Include="Assets\Scripts\StoryTrigger.cs" />
     <Compile Include="Assets\Scripts\WaveSpawner.cs" />
+    <Compile Include="Assets\Scripts\ZSorter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AssetStore\SimpleFX\Materials\UnlitVertexColour_Alpha.shader" />
