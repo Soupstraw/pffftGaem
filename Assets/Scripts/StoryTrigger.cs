@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class StoryTrigger : MonoBehaviour {
 
+    public bool isItEndGameAlready = false;
+    [Space]
     public string eventText;
+
 
     private GameProgressionController gP;
     private PauseController pauseC;
@@ -25,6 +28,10 @@ public class StoryTrigger : MonoBehaviour {
             pauseC.isGamePaused = false;
             pauseC.PauseGame();
             this.gameObject.SetActive(false);
+            if(isItEndGameAlready)
+            {
+                gP.progressionText.text = ("Game over! You did very well, only smashed " + gP.thingsSmashed.ToString() + " things and/or pppl :)");
+            }
 
         }
     }
