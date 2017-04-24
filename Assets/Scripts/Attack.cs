@@ -23,6 +23,7 @@ public class Attack : MonoBehaviour {
 	public Attacker turnAttack;
 
 	public ParticleSystem slamParticles;
+	public ParticleSystem swipeParticles;
 
 	public float movementMultiplier = 1.0f;
 	public bool charging = false;
@@ -94,6 +95,18 @@ public class Attack : MonoBehaviour {
 
 	public void SlamParticles(){
 		slamParticles.Play ();
+	}
+
+	public void SwipeParticle(){
+		Instantiate(swipeParticles, transform.position, transform.rotation * Quaternion.Euler(0, 0, 205));
+	}
+
+	public void SwipeParticle2(){
+		Instantiate(swipeParticles, transform.position, transform.rotation * Quaternion.Euler(180, 0, 25));
+	}
+
+	public void SpinParticle(){
+		//GameObject p = Instantiate(spin, transform.position, transform.rotation * Quaternion.Euler(0, 0, 205));
 	}
 
 	IEnumerator SpinCoroutine(float speed, float angle){
