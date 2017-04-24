@@ -5,7 +5,8 @@ using UnityEngine;
 public class AI : MonoBehaviour {
 	GameObject player;
 	Rigidbody2D rb;
-	BoxCollider2D boxColl;
+	Damagable damagable;
+	Animator anim;
 
 	public float speed = 1.0f;
 	public GameObject firstAttack;
@@ -14,7 +15,8 @@ public class AI : MonoBehaviour {
 	void Start () {
 		player = GameObject.FindWithTag("Player");
 		rb = gameObject.GetComponent<Rigidbody2D> ();
-		boxColl = gameObject.GetComponent<BoxCollider2D> ();
+		damagable = GetComponent<Damagable> ();
+		anim = GetComponent<Animator> ();
 	}
 
 	public void Stop() {
@@ -50,20 +52,20 @@ public class AI : MonoBehaviour {
 		}
 		rotation.eulerAngles = new Vector3 (0, 0, rot);
 		Instantiate (projectile, transform.position, rotation);
+		anim.SetTrigger ("Attack");
 	}
 
 	public IEnumerator Evade(Vector3 direction, float speed, float time) {
 		float startTime = Time.time;
-		boxColl.enabled = false;
+		damagable.enabled = false;
 		while (Time.time - startTime < time) {
 			rb.velocity = direction.normalized * (speed * 2 * (1 - (Time.time - startTime) / time));
 			yield return null;
 		}
-		boxColl.enabled = true;
+		damagable.enabled = true;
 	}
 
 	void Update(){
-		Animator anim = GetComponent<Animator> ();
 		if (anim != null) {
 			Vector3 moveDir = rb.velocity.normalized;
 			anim.SetFloat ("MoveX", moveDir.x);
