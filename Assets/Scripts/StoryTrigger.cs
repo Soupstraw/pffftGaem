@@ -7,6 +7,8 @@ public class StoryTrigger : MonoBehaviour {
 
 	public bool heals = false;
     public bool isItEndGameAlready = false;
+    public bool isItDragonTime = false;
+    public GameObject dragonPanel1;
     [Space]
     public string eventText;
 
@@ -34,6 +36,10 @@ public class StoryTrigger : MonoBehaviour {
             if(isItEndGameAlready)
             {
                 gP.progressionText.text = ("Game over! You did very well, only smashed " + gP.thingsSmashed.ToString() + " things and/or pppl :)");
+            }
+            if(isItDragonTime)
+            {
+                dragonPanel1.gameObject.SetActive(true);
             }
 
         }

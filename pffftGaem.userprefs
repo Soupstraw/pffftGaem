@@ -1,17 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AI\DummyAI.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AI\DragonAI.cs">
     <Files>
-      <File FileName="Assets\Scripts\AI\AI.cs" Line="61" Column="30" />
-      <File FileName="Assets\Scripts\AI\BanditAI.cs" Line="32" Column="26" />
+      <File FileName="Assets\Scripts\AI\AI.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\AI\BanditAI.cs" Line="66" Column="51" />
       <File FileName="Assets\Scripts\AI\ArcherAI.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\AI\RogueAI.cs" Line="2" Column="34" />
+      <File FileName="Assets\Scripts\AI\RogueAI.cs" Line="94" Column="11" />
       <File FileName="Assets\Scripts\Attacker.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\ProjectileAttacker.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\AI\EvasiveAI.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\AI\KnightAI.cs" Line="34" Column="27" />
-      <File FileName="Assets\Scripts\AI\DummyAI.cs" Line="21" Column="20" />
+      <File FileName="Assets\Scripts\AI\KnightAI.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\AI\DummyAI.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\AI\VillagerAI.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\AI\DragonAI.cs" Line="8" Column="8" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
