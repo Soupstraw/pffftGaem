@@ -27,6 +27,8 @@ public class Attack : MonoBehaviour {
 	public float movementMultiplier = 1.0f;
 	public bool charging = false;
 	public bool canAttack = true;
+	public bool isSwinging = false;
+	public bool isDashing = false;
 
 	public void ScreenShake(float intensity){
 		FindObjectOfType<ScreenShake>().ApplyShake (intensity);
@@ -46,10 +48,12 @@ public class Attack : MonoBehaviour {
 
 	public void SpinAttack(){
 		spinAttack.DealDamage ();
+		Spin (500, 360);
 	}
 
 	public void TurnAttack(){
 		turnAttack.DealDamage ();
+		Spin (500, 180);
 	}
 
 	public void LightWarn(){
@@ -84,24 +88,28 @@ public class Attack : MonoBehaviour {
 		GetComponentInParent<Charge> ().DoCharge (Quaternion.Euler (0, 0, transform.rotation.eulerAngles.z) * Vector3.down);
 	}
 
-	public void Spin(float speed){
-		StartCoroutine (SpinCoroutine (speed));
+	public void Spin(float speed, float angle){
+		StartCoroutine (SpinCoroutine (speed, angle));
 	}
 
 	public void SlamParticles(){
 		slamParticles.Play ();
 	}
 
-	IEnumerator SpinCoroutine(float speed){
-		Quaternion target = Quaternion.Euler(angle, 0, transform.rotation.eulerAngles.z - 179f);
-		while (Quaternion.Angle(transform.rotation, target) > 0.1f) {
-			transform.rotation = Quaternion.RotateTowards(transform.rotation, target, speed * Time.deltaTime);
+	IEnumerator SpinCoroutine(float speed, float angle){
+		float remaining = angle;
+		while (remaining > 0) {
+			float rotateBy = speed * Time.deltaTime;
+			transform.rotation *= Quaternion.Euler (0, 0, -Mathf.Min(rotateBy, remaining));
+			remaining -= rotateBy;
 			yield return null;
 		}
 	}
 
 	// Update is called once per frame
 	void Update () {
+		GameObject.FindWithTag("Player").GetComponent<Animator> ().SetBool("Swing", isSwinging);
+		//GameObject.FindWithTag("Player").GetComponent<Animator> ().SetBool("Dash", isDashing);
 		if (Input.GetButtonDown ("LightAttack") && canAttack) {
 			anim.SetBool ("LightAttack", true);
 		}
@@ -112,6 +120,7 @@ public class Attack : MonoBehaviour {
 			anim.SetBool ("HeavyAttack", false);
 			anim.SetBool ("LightAttack", false);
 		}
+
 		if (anim.GetCurrentAnimatorStateInfo (0).IsName ("Idle") && updateRotation) {
 			Vector3 screenPos = Camera.main.WorldToScreenPoint (transform.position);
 			screenPos.Scale (new Vector3 (1, 1, 0));
