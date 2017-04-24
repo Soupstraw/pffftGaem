@@ -5,11 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class Aggro : MonoBehaviour {
 
-	private Collider2D collider;
+	private Collider2D coll;
 
 	// Use this for initialization
 	void Start () {
-		collider = GetComponent<Collider2D> ();
+		coll = GetComponent<Collider2D> ();
 		SetAIEnabled (false);
 	}
 	
@@ -29,7 +29,7 @@ public class Aggro : MonoBehaviour {
 		LayerMask mask = LayerMask.GetMask ("Enemy");
 		filter.SetLayerMask (mask);
 		Collider2D[] res = new Collider2D[100];
-		Physics2D.OverlapCollider (collider, filter, res);
+		Physics2D.OverlapCollider (coll, filter, res);
 		foreach(Collider2D col in res){
 			if (col != null) {
 				AI ai = col.GetComponent<AI> ();

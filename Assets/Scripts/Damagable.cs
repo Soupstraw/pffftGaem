@@ -43,6 +43,12 @@ public class Damagable : MonoBehaviour {
 		if (health <= 0) {
 			Kill ();
 		}
+			
+		Animator anim = GetComponent<Animator> ();
+
+		if (anim != null) {
+			anim.SetTrigger ("Hit");
+		}
 	}
 
 	public void Knockback(Vector3 dir){
