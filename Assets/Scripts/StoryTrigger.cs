@@ -35,7 +35,7 @@ public class StoryTrigger : MonoBehaviour {
             this.gameObject.SetActive(false);
             if(isItEndGameAlready)
             {
-                gP.progressionText.text = ("Game over! You did very well, only smashed " + gP.thingsSmashed.ToString() + " things and/or pppl :)");
+                gP.progressionText.text = ("Game over! You did very well, you only smashed " + gP.thingsSmashed.ToString() + " things and/or ppl :)");
             }
             if(isItDragonTime)
             {
