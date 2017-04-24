@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Music : MonoBehaviour {
 
+	public AudioClip deathMusic;
+
 	public AudioSource primarySource;
 	public AudioSource secondarySource;
 
@@ -27,6 +29,18 @@ public class Music : MonoBehaviour {
 		} else if(!primarySource.isPlaying){
 			primarySource.clip = song;
 			StartCoroutine (CrossfadeCoroutine (false));
+		}
+	}
+
+	public void PutSong(AudioClip song){
+		if (secondarySource.isPlaying) {
+			secondarySource.Stop ();
+			secondarySource.clip = song;
+			secondarySource.Play ();
+		} else if(primarySource.isPlaying){
+			primarySource.Stop ();
+			primarySource.clip = song;
+			primarySource.Play ();
 		}
 	}
 

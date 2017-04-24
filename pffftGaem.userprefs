@@ -1,18 +1,22 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AI\DragonAI.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Damagable.cs">
     <Files>
       <File FileName="Assets\Scripts\AI\AI.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\AI\BanditAI.cs" Line="66" Column="51" />
+      <File FileName="Assets\Scripts\AI\BanditAI.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\AI\ArcherAI.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\AI\RogueAI.cs" Line="94" Column="11" />
+      <File FileName="Assets\Scripts\AI\RogueAI.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Attacker.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ProjectileAttacker.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\AI\EvasiveAI.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\AI\KnightAI.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\AI\DummyAI.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\AI\VillagerAI.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\AI\DragonAI.cs" Line="8" Column="8" />
+      <File FileName="Assets\Scripts\Attack.cs" Line="128" Column="29" />
+      <File FileName="Assets\Scripts\AttackSoundManager.cs" Line="38" Column="33" />
+      <File FileName="Assets\Scripts\Aggro.cs" Line="34" Column="23" />
+      <File FileName="Assets\Music.cs" Line="24" Column="22" />
+      <File FileName="Assets\MusicTrigger.cs" Line="12" Column="4" />
+      <File FileName="Assets\Scripts\Damagable.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

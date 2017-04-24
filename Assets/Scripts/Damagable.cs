@@ -13,6 +13,7 @@ public class Damagable : MonoBehaviour {
 	public ParticleSystem hitParticle;
 
 	public GameObject failPanel;
+	public GameObject destroyable;
 
 	private Rigidbody2D rigid;
 
@@ -36,7 +37,6 @@ public class Damagable : MonoBehaviour {
 			//Debug.Log ("Health: " + health);
 			if (splatter != null) {
 				GameObject splat = Instantiate (splatter, transform.position, Quaternion.Euler (0, 0, Random.value * 360f));
-				;
 				splat.transform.localScale *= damage / healthMax;
 			}
 			if (hitParticle != null) {
@@ -82,8 +82,12 @@ public class Damagable : MonoBehaviour {
 		}
 		if (gameObject.tag == "Player") {
 			failPanel.SetActive(true);
+			FindObjectOfType<Music> ().PutSong (FindObjectOfType<Music> ().deathMusic);
 			FindObjectOfType<PauseController> ().PauseGame ();
 			FindObjectOfType<CursorScript> ().enabled = false;
+		} else if(gameObject.tag == "Dragon"){
+			Destroy (destroyable);
+			Destroy (gameObject);
 		}else
 			Destroy (gameObject);
 	}
