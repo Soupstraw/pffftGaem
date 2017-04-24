@@ -19,8 +19,8 @@ public class ProjectileAttacker : MonoBehaviour {
 		transform.Translate (Vector3.right * speed * Time.deltaTime);
 	}
 
-	void OnCollisionEnter2D(Collision2D other) {
-		if (other.collider.tag == "Player") {
+	void OnTriggerEnter2D(Collider2D other) {
+		if (other.tag == "Player") {
 			attacker.DealDamage ();
 			Destroy (gameObject);
 		}
