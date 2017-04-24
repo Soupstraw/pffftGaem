@@ -31,23 +31,26 @@ public class Damagable : MonoBehaviour {
 	}
 
 	public void DealDamage(float damage){
-		health -= damage;
-		//Debug.Log ("Health: " + health);
-		if(splatter != null){
-			GameObject splat = Instantiate (splatter, transform.position, Quaternion.Euler(0, 0, Random.value * 360f));;
-			splat.transform.localScale *= damage / healthMax;
-		}
-		if (hitParticle != null) {
-			hitParticle.Play ();
-		}
-		if (health <= 0) {
-			Kill ();
-		}
+		if (enabled) {
+			health -= damage;
+			//Debug.Log ("Health: " + health);
+			if (splatter != null) {
+				GameObject splat = Instantiate (splatter, transform.position, Quaternion.Euler (0, 0, Random.value * 360f));
+				;
+				splat.transform.localScale *= damage / healthMax;
+			}
+			if (hitParticle != null) {
+				hitParticle.Play ();
+			}
+			if (health <= 0) {
+				Kill ();
+			}
 			
-		Animator anim = GetComponent<Animator> ();
+			Animator anim = GetComponent<Animator> ();
 
-		if (anim != null) {
-			anim.SetTrigger ("Hit");
+			if (anim != null) {
+				anim.SetTrigger ("Hit");
+			}
 		}
 	}
 
