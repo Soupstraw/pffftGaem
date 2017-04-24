@@ -24,6 +24,7 @@ public class Attack : MonoBehaviour {
 
 	public ParticleSystem slamParticles;
 	public ParticleSystem swipeParticles;
+	public ParticleSystem spinParticles;
 
 	public float movementMultiplier = 1.0f;
 	public bool charging = false;
@@ -106,7 +107,7 @@ public class Attack : MonoBehaviour {
 	}
 
 	public void SpinParticle(){
-		//GameObject p = Instantiate(spin, transform.position, transform.rotation * Quaternion.Euler(0, 0, 205));
+		Instantiate(spinParticles, transform.position, transform.rotation * Quaternion.Euler(180, 0, 25));
 	}
 
 	IEnumerator SpinCoroutine(float speed, float angle){
