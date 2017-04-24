@@ -8,6 +8,7 @@ public class Music : MonoBehaviour {
 	public AudioSource secondarySource;
 
 	public float crossFadeTime = 1.0f;
+	public float musicVolume = 0.5f;
 
 	// Use this for initialization
 	void Start () {
@@ -38,8 +39,8 @@ public class Music : MonoBehaviour {
 		b.Play ();
 		float startTime = Time.time;
 		while (Time.time - startTime < crossFadeTime) {
-			a.volume = Mathf.Lerp (1, 0, (Time.time - startTime) / crossFadeTime);
-			b.volume = Mathf.Lerp (0, 1, (Time.time - startTime) / crossFadeTime);
+			a.volume = Mathf.Lerp (musicVolume, 0, (Time.time - startTime) / crossFadeTime);
+			b.volume = Mathf.Lerp (0, musicVolume, (Time.time - startTime) / crossFadeTime);
 			yield return null;
 		}
 		a.Stop ();

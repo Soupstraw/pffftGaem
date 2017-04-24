@@ -13,7 +13,7 @@ public class HitpointBar : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		slider = GetComponent<Slider> ();
-		slider.maxValue = 100f;
+		slider.maxValue = 200f;
 		slider.minValue = 0f;
 	}
 	
